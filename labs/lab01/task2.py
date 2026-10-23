@@ -1,27 +1,56 @@
 """Завдання 2: багаторівнева система контролю доступу (варіант 11)."""
+
 from shared.student import STUDENT_NAME, VARIANT_NUMBER
 
 USERS = {
-    "risk_manager": {"role": "risk_analyst", "clearance": 4,
-                     "department": "Risk Management", "active": True},
-    "business_analyst": {"role": "business_analyst", "clearance": 2,
-                         "department": "Business", "active": True},
-    "legal_counsel": {"role": "legal", "clearance": 3,
-                      "department": "Legal", "active": True},
-    "contractor_dev": {"role": "contractor", "clearance": 2,
-                       "department": "Contract", "active": True},
-    "obsolete_system": {"role": "legacy_system", "clearance": 1,
-                        "department": "Legacy", "active": False},
+    "risk_manager": {
+        "role": "risk_analyst",
+        "clearance": 4,
+        "department": "Risk Management",
+        "active": True,
+    },
+    "business_analyst": {
+        "role": "business_analyst",
+        "clearance": 2,
+        "department": "Business",
+        "active": True,
+    },
+    "legal_counsel": {
+        "role": "legal",
+        "clearance": 3,
+        "department": "Legal",
+        "active": True,
+    },
+    "contractor_dev": {
+        "role": "contractor",
+        "clearance": 2,
+        "department": "Contract",
+        "active": True,
+    },
+    "obsolete_system": {
+        "role": "legacy_system",
+        "clearance": 1,
+        "department": "Legacy",
+        "active": False,
+    },
 }
 RESOURCES = [
-    ("risk_registers", 4), ("business_requirements", 2),
-    ("legal_documents", 3), ("contract_code", 2),
-    ("governance_framework", 4), ("meeting_minutes", 1),
-    ("regulatory_reports", 3), ("executive_dashboards", 4),
-    ("project_specs", 2), ("public_statements", 1),
+    ("risk_registers", 4),
+    ("business_requirements", 2),
+    ("legal_documents", 3),
+    ("contract_code", 2),
+    ("governance_framework", 4),
+    ("meeting_minutes", 1),
+    ("regulatory_reports", 3),
+    ("executive_dashboards", 4),
+    ("project_specs", 2),
+    ("public_statements", 1),
 ]
 SECURITY_LEVELS = (
-    "Public", "Internal Use", "Restricted", "Highly Restricted",
+    "Public",
+    "Internal Use",
+    "Restricted",
+    "Highly Restricted",
 )
 BLOCKED_USERS = {"obsolete_system", "contract_expired", "legal_hold"}
 
@@ -58,4 +87,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    

@@ -6,13 +6,22 @@
     2 групи -> Середній
     0-1 група -> Слабкий
 """
+
 import random
 
 from shared.student import STUDENT_NAME, VARIANT_NUMBER
 
 PASSWORDS = [
-    "APT@Detect10n", "simple", "Red@Team2023", "participant", "Blue@T3am",
-    "common123", "Purple@T34m", "regular123", "Gr33n@Team", "normal123",
+    "APT@Detect10n",
+    "simple",
+    "Red@Team2023",
+    "participant",
+    "Blue@T3am",
+    "common123",
+    "Purple@T34m",
+    "regular123",
+    "Gr33n@Team",
+    "normal123",
 ]
 CRITERIA = {
     "min_length": 7,
@@ -21,7 +30,12 @@ CRITERIA = {
     "require_special": True,
 }
 FORBIDDEN = {
-    "simple", "participant", "common123", "regular123", "normal123", "test",
+    "simple",
+    "participant",
+    "common123",
+    "regular123",
+    "normal123",
+    "test",
 }
 
 
@@ -39,11 +53,13 @@ def analyze_password(password, all_passwords, criteria, forbidden):
     if password.lower() in forbidden or len(password) < min_len:
         return "Заборонений"
 
-    met = sum([
-        any(ch.isdigit() for ch in password),
-        any(ch.isupper() for ch in password),
-        any(not ch.isalnum() for ch in password),
-    ])
+    met = sum(
+        [
+            any(ch.isdigit() for ch in password),
+            any(ch.isupper() for ch in password),
+            any(not ch.isalnum() for ch in password),
+        ]
+    )
     if met == 3:
         long_enough = len(password) >= min_len + 4
         unique = all_passwords.count(password) == 1

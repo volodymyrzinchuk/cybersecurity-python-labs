@@ -1,4 +1,5 @@
 """Завдання 3: хешування, CSV-база та JSON-логування (варіант 11)."""
+
 import csv
 import hashlib
 import hmac
@@ -41,9 +42,7 @@ def generate_hash(password: str, salt: str = "00000") -> str:
     if not password or not salt:
         raise ValueError("Password and salt must not be empty")
     if len(password) < MIN_LENGTH:
-        raise ValidationError(
-            f"Password must be at least {MIN_LENGTH} characters"
-        )
+        raise ValidationError(f"Password must be at least {MIN_LENGTH} characters")
     data = (password + salt).encode("utf-8")
     return hashlib.new(ALGORITHM, data).hexdigest()
 
@@ -93,12 +92,13 @@ def write_log(username, success):
             json.dumps(records, indent=4, ensure_ascii=False),
             encoding="utf-8",
         )
-    except (PermissionError, IOError, ValueError) as err:
+    except (OSError, PermissionError, ValueError) as err:
         print(f"Logging error: {err}")
 
 
 def log_event(func):
     """Декоратор: логує кожну спробу входу."""
+
     @wraps(func)
     def wrapper(username, password):
         success = False
@@ -107,6 +107,7 @@ def log_event(func):
             return success
         finally:
             write_log(username, success)
+
     return wrapper
 
 
@@ -148,7 +149,7 @@ def main():
         print("Error: users.csv not found")
     except PermissionError:
         print("Error: no permission to access file")
-    except IOError as err:
+    except OSError as err:
         print(f"I/O error: {err}")
 
 
