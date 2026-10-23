@@ -1,0 +1,42 @@
+[
+    {
+        "event": "login",
+        "user": "alice",
+        "result": "success",
+        "timestamp": "2026-10-23 11:13:15",
+        "args": [],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "alice",
+        "result": "failure",
+        "timestamp": "2026-10-23 11:13:15",
+        "args": [],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "nobody",
+        "result": "failure",
+        "timestamp": "2026-10-23 11:13:15",
+        "args": [],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "bob",
+        "result": "failure",
+        "timestamp": "2026-10-23 11:13:15",
+        "args": [],
+        "kwargs": {}
+    },
+    {
+        "event": "login",
+        "user": "",
+        "result": "failure",
+        "timestamp": "2026-10-23 11:13:15",
+        "args": [],
+        "kwargs": {}
+    }
+]
